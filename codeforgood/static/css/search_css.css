@@ -1,0 +1,12 @@
+.filters{
+    display: inline-block;
+}
+
+.sortBy {
+    text-align: right;
+}
+
+.resultsAndGroup {
+    display: inline-block;
+
+}

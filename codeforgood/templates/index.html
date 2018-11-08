@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+    <br><br><br><br>
+    <div class="container">
+        <div class="col-xl-16 content-box">
+            <div class="row row-featured row-featured-category">
+
+                <div class="col-md-2 col-sm-6 mb-4">
+                    <form action="search" method="get">
+                        <img class="card-img-top" src="{% static 'sound.png' %}" alt="light">
+                        <div class="card-body">
+                            <input type="hidden" name="query" value="sound">
+                            <input type="submit" value="#sound">
+                        </div>
+                    </form>
+                </div>
+
+
+                <div class="col-md-2 col-sm-6 mb-4">
+                    <form action="search" method="get">
+                        <img class="card-img-top" src="{% static 'outside.jpeg' %}" alt="Outdoors">
+                        <div class="card-body">
+                            <input type="hidden" name="query" value="outdoors">
+                            <input type="submit" value="#outdoors">
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-md-2 col-sm-6 mb-4">
+                    <form action="search" method="get">
+                        <img class="card-img-top" src="{% static 'light.jpeg' %}" alt="Light">
+                        <div class="card-body">
+                            <input type="hidden" name="query" value="light">
+                            <input type="submit" value="#light">
+                        </div>
+                    </form>
+                </div>
+                <!-- end of first row -->
+
+                <div class="col-md-2 col-sm-6 mb-4">
+                    <form action="search" method="get">
+                        <img class="card-img-top" src="{% static 'quiet.jpeg' %}" alt="Quiet">
+                        <div class="card-body">
+                            <input type="hidden" name="query" value="quiet">
+                            <input type="submit" value="#quiet">
+                        </div>
+                    </form>
+                </div>
+
+
+                <div class="col-md-2 col-sm-6 mb-4">
+                    <form action="search" method="get">
+                        <img class="card-img-top" src="{% static 'touch.jpeg' %}" alt="Touch">
+                        <div class="card-body">
+                            <input type="hidden" name="query" value="touch">
+                            <input type="submit" value="#touch">
+                        </div>
+                    </form>
+                </div>
+                <!-- end of second row -->
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}

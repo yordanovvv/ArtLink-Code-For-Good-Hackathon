@@ -1,0 +1,15 @@
+ .paintings {
+        border-collapse: collapse;
+
+    }
+    .paintings tr:nth-child(odd) {
+        background-color: lightblue;
+    }
+    .paintings tr:nth-child(even) {
+        background-color: lightgray;
+    }
+
+     .paintings td{
+        border: 1px solid #ddcfca;
+        padding: 10px;
+    }

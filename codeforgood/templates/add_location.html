@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<form method="POST" action="#">
+		{% csrf_token %}
+		{{ form.as_p }}
+
+        <table class="paintings">
+            <tr>
+            <td><label for="name">Name</label></td>
+            <td><input type="text" name="name" placeholder="Enter Name"></td>
+            </tr>
+            <tr>
+            <td><label for="place">Place</label></td>
+            <td><input type="text" name="place" placeholder="Enter Place"></td>
+                </tr>
+            <tr>
+            <td><label for="description">Description</label></td>
+            <td><input type="text" name="description" placeholder="Enter Name"></td>
+             </tr>
+            <tr>
+                <td><label for="date">Date</label></td>
+            <td><input type="date" name="date" placeholder="Enter Date"></td>
+            </tr>
+            <tr>
+             <td><label for="contact_name">Contact Name</label></td>
+            <td><input type="text" name="contact_name" placeholder="Enter Contact Name"></td>
+            </tr>
+            <tr>
+             <td><label for="contact_phone">Contact Phone</label></td>
+           <td><input type="text" name="contact_phone" placeholder="Enter Phone"></td>
+             </tr>
+            <tr>
+                <td><label for="contact_email">Contact Email</label></td>
+            <td><input type="email" name="contact_email" placeholder="Enter Contact Email"></td>
+            </tr>
+            <tr>
+             <td><label for="website">Website</label></td>
+             <td><a href="" name="website" /></td>
+             </tr>
+            <tr>
+                <td><label for="cost">Fee</label></td>
+                <td><input type="text" name="cost" placeholder="Enter fee"></td>
+            </tr>
+        </table>
+	    <button type="submit" onsubmit="<?php echo "Submit successful .Event added".?>>Submit</button>
+    </form>
+{% endblock %}

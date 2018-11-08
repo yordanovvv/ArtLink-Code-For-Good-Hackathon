@@ -1,0 +1,7 @@
+*.none
+
+.idea/
+*/migrations/*
+*.sql
+*.pyc
+*.sqlite3

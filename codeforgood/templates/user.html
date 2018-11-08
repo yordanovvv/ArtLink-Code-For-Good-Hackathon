@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<br><br><br>
+
+<p> Hello Users! </p>
+
+<div class="locationlist">
+	{% if favs %} 
+		{% for fav in favs}
+			<div class=loccontainer>
+				<p><b>{{fav.name}}</b></p>
+				<p>{{fav.description}}</fav></p>
+				<p>Contact: {{fav.contact_name}} at {{fav.contact_num}}</p>
+			</div>
+	{% else %}
+		<p>This user has no favourites, sorry!</p>
+	{% endif %}
+</div>
+
+
+
+<br><br><br><br><br><br>
+
+{% endblock %}

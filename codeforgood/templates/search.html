@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<script>
+    function expand(id) {
+    var para = document.getElementById("paragraphDescription"+String(id));
+    var expandButton = document.getElementById("ExpandButton"+String(id));
+
+    if (para.style.display == 'none') {
+        para.style.display = 'block';
+        expandButton.innerText = "Hide";
+    } else {
+        para.style.display = 'none';
+        expandButton.innerText = "Expand";
+    }
+    }
+</script>
+
+<div class="searchBoxArea">
+    <!-- Search form -->
+    <form class="form-inline" method="get" action="#">
+        <input class="form-control form-control-sm mr-3 w-75" type="text" placeholder="Search" aria-label="Search" name="query">
+        <!-- <a class="btn btn-primary" href="" role="button"><i class="fa fa-search" aria-hidden="true"></i></a> -->
+        <input type="submit">
+    </form>
+</div>
+
+<div class="row">
+    <div class="col-sm-2">
+
+    <div class="filters" style="width: 100%">
+        <div class="filter distance">
+            <label for="relativeDistance"><b>Distance:</b></label>
+            <br>
+            <select class="form-control">
+                <option value="Exact Location">Exact Location</option>
+                <option value="3miles">+ 3 miles</option>
+                <option value="5miles">+ 5 miles</option>
+                <option value="10miles">+ 10 miles</option>
+                <option value="25miles">+ 25 miles</option>
+                <option value="50miles">+ 50 miles</option>
+                <option value="nationwide">Nationwide</option>
+            </select>
+        </div>
+        <div class="priceRange">
+            <span><b>Price:</b></span><br>
+            <div class="checkbox">
+                <input type="checkbox" name="priceRange_free" value="free">Free<br>
+                <input type="checkbox" name="priceRange_upto10" value="one_to_ten">£1 - £10<br>
+                <input type="checkbox" name="priceRange_upto25" value="ten_twentyfive">£10 - £25<br>
+                <input type="checkbox" name="priceRange_over25" value="over_twentyfive">over £25<br>
+            </div>
+        </div>
+    </div>
+
+        <div class="resultsAndGroup">
+            <div class="sortBy">
+                <!-- dropdown menu for sort by-->
+                <label for="sortBy"><b>Sort by:</b></label>
+                <select class="form-control" id="sortBy">
+                    <option value="pricelowToHigh">Price (Low to High)</option>
+                    <option value="priceHighToLow">Price (High to Low)</option>
+                    <option value="newest">Newest</option>
+                </select>
+            </div>
+            <div class="results">
+                {% if locations %}
+                <p>{{locations|length}} results found for: {{search}}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        {% if locations %}
+        <ul style="list-style: none;">
+            {% for location in locations %}
+            <li>
+                <div class="card h-100">
+                    <div class="card-img-top"><div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q={{location.latitude}}%2C%20{{location.longitude}}&t=&z=13&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://www.pureblack.de">website erstellen lassen</a></div><style>.mapouter{text-align:right;height:500px;width:600px;}.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}</style></div>
+                    <div class="card-body">
+                        <h4 class="card-title">
+                            <a href="{{location.website}}">{{location.name}}</a>
+                        </h4>
+                        <h5>{{location.place}}</h5>
+                        <p id="paragraphDescription{{location.id}}" style = "display:none;">{{location.description}}</p>
+                        <button onclick="expand({{location.id}})", id="ExpandButton{{location.id}}">Expand</button>
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
